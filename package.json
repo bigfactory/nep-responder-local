@@ -1,6 +1,6 @@
 {
   "name": "nep-responder-local",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "local responder for nep",
   "main": "index.js",
   "author": {

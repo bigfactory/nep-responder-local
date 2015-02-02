@@ -15,6 +15,10 @@ module.exports = function(req, res, next, data) {
 
     url = url.replace(/\?.*$/, '');
 
+    if(url[url.length - 1] == '/' && file[file.length - 1] == '/' && options.index){
+        url += options.index;
+    }
+
     var target = url.replace(pattern, '');
     target = path.join(options.file, target);
 
