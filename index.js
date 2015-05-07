@@ -33,5 +33,4 @@ module.exports = function(req, res, next, data) {
     buffer = fs.readFileSync(target);
     res.send(buffer);
 
-    next();
 };
