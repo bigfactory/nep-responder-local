@@ -19,8 +19,15 @@ module.exports = function(req, res, next, data) {
         url += options.index;
     }
 
-    var target = url.replace(pattern, '');
-    target = path.join(options.file, target);
+    var target;
+
+    if(isFile(options.file)){
+        target = options.file;
+    }
+    else{
+        target = url.replace(pattern, '');
+        target = path.join(options.file, target);
+    }
 
     if (!fs.existsSync(target)) {
         var msg = 'file not exists : ' + target;
@@ -34,3 +41,8 @@ module.exports = function(req, res, next, data) {
     res.send(buffer);
 
 };
+
+function isFile(file){
+    var stat = fs.statSync(file);
+    return stat.isFile();
+}
